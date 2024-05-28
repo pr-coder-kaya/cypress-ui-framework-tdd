@@ -28,6 +28,7 @@ npx cypress open
 ```
 
 # Organize Your Project Structure
+
 ## Default Project Structure
 
 ```python
@@ -43,6 +44,7 @@ cypress-automation/
 ```
 
 # Write Your First Test
+
 ## Create a Test File
 
 ```
@@ -65,7 +67,9 @@ describe('TechGlobal Training Home Test', () => {
 ```
 
 # Implement Page Object Model (POM)
+
 This is used to store page-specific locators and actions
+
 Advantage: Reusable page objects
 ## Create a Page Object File
 
@@ -118,7 +122,9 @@ export default LoginPage;
 ```
 
 ## Use Page Objects in Tests
+
 Advantage: Cleaner and more maintainable test files
+
 ``` javascript
 // cypress/e2e/integration/login-test.cy.js
 ///<reference types="cypress"/>
@@ -137,8 +143,11 @@ describe('Login Functionality', () => {
 ```
 
 # Use Fixtures for Test Data
+
 Fixtures are JSON files with test data
+
 Advantage: Tests using externalized data for better maintainability
+
 ## Create a Fixture File
 
 ```
@@ -181,7 +190,9 @@ describe('Login Functionality', () => {
 ```
 
 # Configure Environment Variables
+
 This is used to protect sensitive or environment-specific data
+
 Advantage: Secure and flexible test configurations
 
 ## Install the dotenv dependency
