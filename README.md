@@ -17,7 +17,7 @@ npm init -y
 ## Install Cypress
 
 ```bash
-npm install cypress
+npm install cypress -D
 ```
 
 ## Open Cypress
@@ -198,7 +198,7 @@ Advantage: Secure and flexible test configurations
 ## Install the dotenv dependency
 
 ```
-npm install dotenv
+npm install dotenv -D
 ```
 
 ## Create a .env File
