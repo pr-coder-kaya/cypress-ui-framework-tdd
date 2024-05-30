@@ -265,7 +265,6 @@ This package is handy when creating a visually appealing and informative test re
 
 It provides various features such as pie charts to display test success and failure rates and detailed information about each test case. This includes the status of the test, duration, and even snapshots at the time of test failure.
 
-
 ## Setup
 
 Install cypress-mochawesome-reporter
@@ -323,6 +322,42 @@ module.exports = defineConfig({
     },
   },
 });
+```
+
+# Creating Custom Scripts
+
+Open package.json file and add the following scripts to the 'scripts' section of your package.json file. 
+
+This section defines shorthand commands for running your Cypress tests with different configurations.
+
+```json
+{
+  "name": "cypress-ui-framework-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "test:smoke": "npx cypress run --env grepTags=@smoke",
+    "test:regression": "npx cypress run --env grepTags=@regression"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cypress/grep": "^4.0.1",
+    "cypress": "^13.10.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "dotenv": "^16.4.5"
+  }
+}
+
+```
+
+## Run Tests
+
+```bash
+npm run test:smoke
 ```
 
 # Set up Git Repository
