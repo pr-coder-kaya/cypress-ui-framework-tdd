@@ -258,6 +258,73 @@ describe('Login Functionality', () => {
 npx cypress run
 ```
 
+# Integrating Test Reporters
+
+Generating detailed HTML reports in Cypress can be achieved using third-party packages like Mochawesome. 
+This package is handy when creating a visually appealing and informative test report. 
+
+It provides various features such as pie charts to display test success and failure rates and detailed information about each test case. This includes the status of the test, duration, and even snapshots at the time of test failure.
+
+
+## Setup
+
+Install cypress-mochawesome-reporter
+
+```bash
+npm install cypress-mochawesome-reporter -D
+```
+
+## Change cypress reporter 
+
+Edit config file (cypress.config.js by default)
+
+```javascript
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+  },
+});
+```
+
+Add to cypress/support/e2e.js
+
+```javascript
+import 'cypress-mochawesome-reporter/register';
+```
+
+## Custom Options
+
+If you want to customize your HTML report with mochawesome-report-generator flags just add the flags you want to reporterOptions
+
+```javascript
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'Test-Results',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true
+  },
+  e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+  },
+});
+```
+
 # Set up Git Repository
 
 # Integrate Your Repository with Pipelines (Jenkins)
