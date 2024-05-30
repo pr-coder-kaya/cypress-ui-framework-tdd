@@ -313,9 +313,7 @@ module.exports = defineConfig({
     inlineAssets: true,
     saveAllAttempts: false,
     reportDir: 'cypress/reports',
-    overwrite: false,
-    html: true,
-    json: true
+    overwrite: false
   },
   e2e: {
     setupNodeEvents(on, config) {
