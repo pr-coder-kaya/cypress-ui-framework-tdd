@@ -21,7 +21,7 @@ jobs:
           # if: failure()
         with:
           name: Cypress-Reports
-          path: cypress/reports/html/index.html
+          path: cypress/reports/index.html
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
 
       - name: Deploy
