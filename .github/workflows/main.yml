@@ -27,5 +27,5 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.MY_SECRET }}
+          github_token: ${{ secrets.MY_TOKEN }}
           publish_dir: cypress/reports/html
