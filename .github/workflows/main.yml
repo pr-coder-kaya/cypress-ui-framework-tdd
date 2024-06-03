@@ -28,4 +28,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.MY_TOKEN }}
-          publish_dir: cypress/reports/html
+          publish_dir: cypress/reports
