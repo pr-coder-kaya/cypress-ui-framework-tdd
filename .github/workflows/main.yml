@@ -3,6 +3,10 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -12,3 +16,8 @@ jobs:
       # Run all Cypress tests  
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          config: |
+            {
+              "baseURL": "${{ env.BASE_URL }}"
+            }
