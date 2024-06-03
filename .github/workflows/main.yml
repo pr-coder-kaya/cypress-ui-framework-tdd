@@ -8,8 +8,6 @@ jobs:
       baseURL: ${{ secrets.baseURL }}
 
     steps:
-      - name: Print BASE_URL
-        run: echo "BASE_URL is $BASE_URL"
       - name: Checkout
         uses: actions/checkout@v4
       # Install npm dependencie & Run all Cypress tests  
