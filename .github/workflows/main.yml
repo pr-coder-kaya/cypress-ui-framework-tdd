@@ -3,18 +3,29 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-
-    env:
-      baseURL: ${{ secrets.baseURL }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencie & Run all Cypress tests  
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          config: |
-            {
-              "baseURL": "${{ env.baseURL }}"
-            }
+          # browser: chrome
+          # headed: false
+          command: npm run
+      
+      - name: Artifacts
+        uses: actions/upload-artifact@v4
+          # add the line below to store screenshots only on failures
+          # if: failure()
+        with:
+          name: Cypress-Reports
+          path: cypress/reports/html/index.html
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.MY_SECRET }}
+          publish_dir: cypress/reports/html

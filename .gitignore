@@ -5,5 +5,4 @@ dist/
 .vscode/*
 cypress/screenshots/
 cypress/videos/
-.env
 cypress/reports/
