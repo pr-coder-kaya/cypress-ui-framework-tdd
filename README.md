@@ -10,20 +10,20 @@ Create an empty directory for your project (cypress-automation)
 
 Open the directory in the IDE and initialize a Node.js project
 
-```bash
+``` bash
 npm init -y
 ```
 
 ## Install Cypress
 
-```bash
+``` bash
 npm install cypress -D
 ```
 
 ## Open Cypress
 This will create a cypress folder with default directories and configuration files.
 
-```bash
+``` bash
 npx cypress open
 ```
 
@@ -31,11 +31,11 @@ npx cypress open
 
 ## Default Project Structure
 
-```python
+```
 cypress-automation/
 ├── cypress/
 │   ├── e2e/
-|   |   └── integration/
+│   │   └── integration/
 │   ├── fixtures/
 │   └── support/
 ├── node_modules/
@@ -47,7 +47,7 @@ cypress-automation/
 
 ## Create a Test File
 
-```
+``` bash
 touch cypress/e2e/integration/first-test.cy.js
 ```
 
@@ -73,7 +73,7 @@ This is used to store page-specific locators and actions
 Advantage: Reusable page objects
 ## Create a Page Object File
 
-```
+``` bash
 mkdir cypress/pages
 touch cypress/pages/LoginPage.js
 ```
@@ -150,7 +150,7 @@ Advantage: Tests using externalized data for better maintainability
 
 ## Create a Fixture File
 
-```
+``` bash
 touch cypress/fixtures/user.json
 ```
 
@@ -197,13 +197,13 @@ Advantage: Secure and flexible test configurations
 
 ## Install the dotenv dependency
 
-```
+``` bash
 npm install dotenv -D
 ```
 
 ## Create a .env File
 
-```
+``` bash
 touch .env
 ```
 
@@ -254,7 +254,7 @@ describe('Login Functionality', () => {
 
 # Run Tests
 
-```
+``` bash
 npx cypress run
 ```
 
@@ -269,7 +269,7 @@ It provides various features such as pie charts to display test success and fail
 
 Install cypress-mochawesome-reporter
 
-```bash
+``` bash
 npm install cypress-mochawesome-reporter -D
 ```
 
@@ -294,7 +294,7 @@ module.exports = defineConfig({
 
 Add to cypress/support/e2e.js
 
-```javascript
+``` javascript
 import 'cypress-mochawesome-reporter/register';
 ```
 
@@ -302,7 +302,7 @@ import 'cypress-mochawesome-reporter/register';
 
 If you want to customize your HTML report with mochawesome-report-generator flags just add the flags you want to reporterOptions
 
-```javascript
+``` javascript
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
@@ -330,7 +330,7 @@ Open package.json file and add the following scripts to the 'scripts' section of
 
 This section defines shorthand commands for running your Cypress tests with different configurations.
 
-```json
+``` json
 {
   "name": "cypress-ui-framework-tdd",
   "version": "1.0.0",
@@ -356,7 +356,7 @@ This section defines shorthand commands for running your Cypress tests with diff
 
 ## Run Tests
 
-```bash
+``` bash
 npm run test:smoke
 ```
 
