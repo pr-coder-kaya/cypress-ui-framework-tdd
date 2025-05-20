@@ -21,3 +21,10 @@ jobs:
           # browser: chrome
           # headed: false
           command: npm run test:regression
+
+      - name: Publish Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Cypress Reports
+          path: cypress/reports/html/index.html
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
