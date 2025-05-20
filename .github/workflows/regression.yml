@@ -4,6 +4,8 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+  schedule:
+    - cron: '0 15 */14 * 4'  # 10 AM CST every other Thursday
 
 jobs:
   cypress-run:
