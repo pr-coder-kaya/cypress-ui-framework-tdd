@@ -1,5 +1,9 @@
-name: End-to-end tests
-on: push
+name: Cypress End-to-end tests
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -14,17 +18,17 @@ jobs:
           # headed: false
           command: npm run test
       
-      - name: Artifacts
-        uses: actions/upload-artifact@v4
-          # add the line below to store screenshots only on failures
-          # if: failure()
-        with:
-          name: Cypress-Reports
-          path: cypress/reports/index.html
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+      # - name: Artifacts
+      #   uses: actions/upload-artifact@v4
+      #     # add the line below to store screenshots only on failures
+      #     # if: failure()
+      #   with:
+      #     name: Cypress-Reports
+      #     path: cypress/reports/index.html
+      #     if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.MY_TOKEN }}
-          publish_dir: cypress/reports
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.MY_TOKEN }}
+      #     publish_dir: cypress/reports
